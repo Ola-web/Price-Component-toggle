@@ -1,0 +1,233 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    font-family: "Montserrat";
+}
+ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+h1 {
+    color: hsl(234, 14%, 74%);
+    font-weight: 800;
+}
+.toggle-container {
+    margin-top: 2em;
+}
+.price {
+    position: relative;
+    height: 100vh;
+    display: grid;
+    place-items: center;
+    background-color: hsl(240, 78%, 98%);
+}
+.price::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height:100%;
+    background-image: url('images/bg-top.svg');
+    background-repeat: no-repeat;
+    background-position: top right;
+    z-index: -4;
+}
+.price::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height:100%;
+    background-image: url('images/bg-bottom.svg');
+    background-repeat: no-repeat;
+    background-position: bottom left;
+    z-index: -4;
+}
+
+.price__card {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.card {
+width: 290px;
+height: 380px;
+text-align: center;
+box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
+border-radius: 10px;
+}
+
+.card > * {
+    margin-top: 1em;
+}
+.amount {
+    font-size: 3.2rem;
+    margin-top: .2em;
+    margin-bottom: .3em;
+    color: hsl(240, 1%, 22%)
+}
+.card .monthly {
+    display: none;
+}
+.show-monthly .card .monthly {
+    display: block;
+}
+.show-monthly .card .annually {
+    display: none;
+}
+.dollar {
+    font-size: 1.5rem;
+    vertical-align: middle;
+}
+.card__item > * {
+    margin-top: 1.5em;
+}
+.card__item {
+    font-size: .85rem;
+    font-weight: 400;
+    padding: 1.3em 0;
+}
+.line {
+    border-top: 1px solid hsl(234, 14%, 74%);
+    border-bottom: 1px solid hsl(234, 14%, 74%);
+    width: 80%;
+    margin: 0 auto;
+}
+.border-top {
+    border-top: 1px solid hsl(234, 14%, 74%);
+    width: 100%;
+    margin: 0 auto;
+}
+
+.basic,
+.master {
+    background-color: white;
+    border-radius: 8px;
+
+}
+
+.professional {
+    background: linear-gradient(
+        to bottom,
+         hsl(236, 72%, 79%), 
+         hsl(237, 63%, 64%)
+    );
+color: #fff;
+transform: scale(1.06);
+}
+
+.white {
+    color: #fff
+}
+.learn {
+    background-color: transparent;
+    padding: 10px 77px;
+    /* border: 1px solid ; */
+    border:none;
+    background: linear-gradient(
+        to right,
+         hsl(236, 72%, 79%), 
+         hsl(237, 63%, 64%)
+    );
+    text-transform: uppercase;
+    cursor: pointer;
+    margin-top: 2em;
+    font-weight: 500;
+    border-radius: 5px;
+    transition: ease-in-out 700ms opacity;
+}
+.blue {
+    color: hsl(237, 63%, 64%);
+    background: white;
+}
+.learn:focus {
+    outline: transparent;
+}
+.blue:hover {
+   background: transparent;
+   border: 1px solid white;
+   color: white;
+}
+.hover:hover {
+   background: transparent;
+   border: 1px solid hsl(237, 63%, 64%);
+   color: hsl(237, 63%, 64%);
+}
+
+/* pile toggle */
+.toggle-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-width: 300px;
+    transition: ease-in-out 1s opacity;
+}
+.toggle-container label {
+    background-image: linear-gradient(
+        to right,
+        hsl(236, 72%, 79%),
+        hsl(237, 63%, 64%)
+    );
+    border-radius: 50px;
+    display: inline-block;
+    position: relative;
+    height: 30px;
+    width: 70px;
+    cursor: pointer;
+}
+
+.toggle-container label .ball {
+    background-color: #fff;
+    border-radius: 50%;
+    position: absolute;
+    top: 2.5px;
+    left: 2.5px;
+    height: 25px;
+    width: 25px;
+}
+
+.toggle-container input {
+    position: absolute;
+    left: -9999px;
+}
+
+.toggle-container input:checked + label .ball {
+    left: auto;
+    right: 2.5px;
+}
+
+@media (max-width: 375px) {
+    .price {
+        padding: 2em;
+    }
+    .price,
+    .price__card {
+        display: flex;
+        flex-direction: column;
+    }
+    .price__card {
+        gap: 40px;
+    }
+    .price__subscribe {
+        margin-bottom: 2em;
+    }
+    .professional {
+        transform: scale(1);
+    }
+
+    .price::before {
+        right: -40px;
+        background-size: cover;
+        width: 60%;
+        height: 60%;
+    }
+    .price::after {
+        width: 40%;
+        height: 40%;
+left: -999pc
+    }
+}
